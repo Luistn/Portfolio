@@ -3,81 +3,47 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title> Luis Torres </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <title>Minha Página Pessoal</title>
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <header>
-        <div class="banner">
-            <img src="imagem/logo.png" alt="Logo de Luis" class="logo-pequena">
-            <h1>Olá! Eu sou Luis</h1>
+    <main class="conteudo-principal">
+        <img src="imagem/1.jpg" alt="Foto de Luis" class="imagem-perfil">
+        <h1 class="nome">&lt; Luis Torres /&gt;</h1>
+        <p class="formacao">Análise e Desenvolvimento de Sistemas<br>Pós em Segurança de Redes<br> Desenvolvedor Full-Stack</p>
+        <div class="icones-sociais">
+            <a href="mailto:luiis.torres@hotmail.com" title="E-mail"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/luistn" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/luistorres98" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://instagram.com/luistn_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#sobre">Sobre Mim</a></li>
-                <li><a href="#formacao">Formação</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="sobre">
-            <h2>Sobre Mim</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Reprehenderit molestias vero eum delectus ipsum explicabo ipsam cum repellendus dolor maiores, <br> velit consequuntur assumenda. Sunt alias voluptas voluptatem placeat quasi culpa.</p>
-        </section>
-
-        <section id="formacao">
-            <h2>Minha Formação</h2>
-            <ul>
-                <li>Análise e Desenvolvimento de Sistemas - Estácio</li>
-                <li>Pós-Graduação em Segurança de Redes</li>
-            </ul>
-        </section>
-
-        <section id="projetos">
-            <h2>Meus Projetos</h2>
-            <div class="card-container">
-                <div class="card">
-                    <h3>Site da Maçonaria</h3>
-                    <p>Site para um loja Maçonica.</p>
-                    <a href="https://cayru1305.web.app/">Ver Online</a>
-                </div>
-                <div class="card">
-                    <h3>Lista de Tarefas</h3>
-                    <p>Aplicação para organizar tarefas com armazenamento local.</p>
-                    <a href="#">Ver no GitHub</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="contato">
-            <h2>Fale Comigo</h2>
-            <form>
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required />
-
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required />
-
-                <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" required></textarea>
-
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
+        <p class="formacao" style="margin-top: 2px; margin-bottom: 6px;">Alguns sites...</p>
+        <div class="links">
+            <a href="#" class="projeto-link" data-url="https://cayru1305.web.app/" data-descricao="Site institucional desenvolvido para a Loja Maçônica Barão de Cayrú. Apresenta informações sobre a loja, eventos e área restrita para membros.">
+                <i class="fas fa-globe"></i> Site da Maçonaria
+            </a>
+            <a href="#" class="projeto-link" data-url="https://emprestimo-406bc.web.app" data-descricao="Sistema de Gestão de Empréstimos e Cobranças, com avisos de vencimentos e botões interativo.">
+                <i class="fas fa-list-check"></i>Gestão de Empréstimos
+            </a>
+            <a href="#" class="projeto-link" data-url="https://chanceler-c65a9.web.app/" data-descricao="Sistema desenvolvido para controle de presença em loja Maçonica, com funcionalidades de cadastro, check-in e geração de relatórios.">
+                <i class="fas fa-list-check"></i> Sistema de Presença
+            </a>
+        </div>
     </main>
 
-<footer>
-    <p>&copy; 2025 Luis. Todos os direitos reservados.</p>
-    <div class="social-icons">
-        <a href="https://github.com/luistn" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/seu-usuario" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://instagram.com/seu-usuario" target="_blank"><i class="fab fa-instagram"></i></a>
+    <div id="modal-projeto" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-button">&times;</button>
+            <h3 id="modal-titulo"></h3>
+            <p id="modal-descricao"></p>
+            <a id="modal-link" href="#" target="_blank" class="modal-button">Visitar Site</a>
+        </div>
     </div>
-</footer>
 
+    <script src="script.js"> </script>
 </body>
 </html>
