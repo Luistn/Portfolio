@@ -1,8 +1,4 @@
-/*
- * =========================================
- *  VARIÁVEIS GLOBAIS E RESET
- * =========================================
- */
+
 :root {
     --cor-primaria: #00e0ff;
     --cor-texto: #b2eaff;
@@ -15,10 +11,9 @@
     --raio-borda: 18px;
     --raio-borda-pequeno: 10px;
 
-    /* Tipografia Fluida */
-    --fonte-grande: clamp(1.25rem, 1.07rem + 0.89vw, 1.75rem); /* ~20px a 28px */
-    --fonte-normal: clamp(0.9rem, 0.83rem + 0.36vw, 1.1rem);   /* ~14.4px a 17.6px */
-    --fonte-pequena: clamp(0.8rem, 0.75rem + 0.22vw, 0.9rem);  /* ~12.8px a 14.4px */
+    --fonte-grande: clamp(1.25rem, 1.07rem + 0.89vw, 1.75rem); 
+    --fonte-normal: clamp(0.9rem, 0.83rem + 0.36vw, 1.1rem);  
+    --fonte-pequena: clamp(0.8rem, 0.75rem + 0.22vw, 0.9rem);  
 }
 
 *, *::before, *::after {
@@ -27,12 +22,10 @@
     padding: 0;
 }
 
-/* =========================================
- *  ESTILOS BASE (MOBILE-FIRST)
- * ========================================= */
+
 body {
     min-height: 100vh;
-    background-color: var(--cor-fundo-container); /* Fundo escuro por padrão em mobile */
+    background-color: var(--cor-fundo-container); 
     font-family: 'Fira Mono', monospace;
     color: var(--cor-texto);
     display: flex;
@@ -40,7 +33,7 @@ body {
 
 .conteudo-principal {
     width: 100%;
-    min-height: 100vh; /* Ocupa a tela inteira no mobile */
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,11 +47,10 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    gap: 1rem; /* Mantém o espaçamento consistente */
+    gap: 1rem; 
 }
 
 .links-coluna {
-    /* Garante que a coluna de links não fique excessivamente larga em telas verticais */
     max-width: 400px;
 }
 
@@ -183,7 +175,6 @@ body {
     transform: scale(1.12) rotate(-8deg);
 }
 
-/* --- Estilos do Modal --- */
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -270,9 +261,7 @@ body {
     transform: scale(1.05);
 }
 
-/* =========================================
- *  ESTILOS PARA TELAS MAIORES (DESKTOP)
- * ========================================= */
+
 @media (min-width: 600px) {
     body {
         background: linear-gradient(135deg, var(--cor-fundo) 0%, var(--cor-primaria) 100%);
@@ -282,29 +271,28 @@ body {
     }
 
     .conteudo-principal {
-        min-height: auto; /* Remove a altura total */
-        max-width: 850px; /* Aumenta a largura máxima para comportar 2 colunas */
+        min-height: auto; 
+        max-width: 850px; 
         background: var(--cor-fundo-container);
         border-radius: var(--raio-borda);
         box-shadow: 0 8px 32px var(--sombra-cor), 0 1.5px 8px #0003;
         border: 2px solid var(--cor-primaria);
         animation: aparecer 1s cubic-bezier(0.25, 1, 0.5, 1);
 
-        /* Novo layout em 2 colunas */
         flex-direction: row;
-        align-items: center; /* Alinha as colunas verticalmente */
+        align-items: center;
         gap: clamp(1rem, 5vw, 3rem);
         padding: 2rem;
     }
 
     .perfil-coluna, .links-coluna {
-        flex: 1; /* Permite que as colunas cresçam igualmente */
+        flex: 1;
         height: 100%;
         justify-content: center;
     }
 
     .links-coluna {
-        max-width: none; /* Remove a restrição de largura no modo desktop/landscape */
+        max-width: none; 
     }
 
     @keyframes aparecer {
