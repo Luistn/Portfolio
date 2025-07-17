@@ -1,4 +1,3 @@
-
 :root {
     --cor-primaria: #00e0ff;
     --cor-texto: #b2eaff;
@@ -259,6 +258,13 @@ body {
 .modal-button:hover {
     background: white;
     transform: scale(1.05);
+}
+
+.carregando-fullstack i {
+    color: #00e0ff;
+    margin-right: 8px;
+    font-size: 1.1em;
+    vertical-align: middle;
 }
 
 
