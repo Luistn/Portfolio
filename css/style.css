@@ -192,6 +192,29 @@ body {
     visibility: visible;
 }
 
+.modal-overlay.active { opacity:1; visibility:visible; }
+
+.icones-sociais a#open-cv {
+    color: var(--cor-primaria);
+    font-size: var(--fonte-grande);
+    text-decoration: none;
+    border-radius: 50%;
+    padding: 0.4em;
+    background: var(--cor-fundo-link);
+    box-shadow: 0 2px 8px rgba(0, 224, 255, 0.13);
+    display: grid;
+    place-items: center;
+    transition: all 0.2s ease-in-out;
+}
+.icones-sociais a#open-cv:hover,
+.icones-sociais a#open-cv:focus {
+    color: white;
+    background: var(--cor-fundo-hover);
+    transform: scale(1.12) rotate(-8deg);
+    box-shadow: 0 4px 24px var(--sombra-cor);
+    outline: none;
+}
+
 .modal-content {
     background: var(--cor-fundo-container);
     padding: clamp(1.5rem, 5vw, 2rem);
@@ -209,6 +232,31 @@ body {
 .modal-overlay.ativo .modal-content {
     transform: translateY(0);
 }
+
+/* CV modal (compact, centered) */
+#modal-cv.modal-overlay.active, #modal-cv.modal-overlay.ativo { align-items: center }
+#modal-cv .modal-content { width: 92%; max-width: 880px; height: auto; max-height: 80vh; border-radius: var(--raio-borda); display:flex; flex-direction:column; justify-content:flex-start; padding:1.25rem; overflow:hidden }
+#modal-cv .cv-preview { flex:1; overflow:auto; padding-right:0.25rem }
+#modal-cv .cv-preview iframe { width:100%; height:100%; border-radius:6px }
+
+/* CV HTML content styling */
+.cv-content {
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--cor-texto);
+    line-height: 1.5;
+    padding: 0.5rem;
+}
+.cv-content h4 {
+    color: var(--cor-primaria);
+    margin-top: 0.6rem;
+    margin-bottom: 0.4rem;
+    font-size: 1.05rem;
+}
+.cv-content p { margin-bottom: 0.6rem; font-size: 0.97rem; }
+.cv-content ul { margin-left: 1rem; margin-bottom: 0.6rem; }
+.cv-content li { margin-bottom: 0.25rem; }
+#modal-cv .close-button{ position: absolute; right:18px; top:18px; z-index:10 }
 
 .close-button {
     position: absolute;
