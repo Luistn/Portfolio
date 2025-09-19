@@ -117,12 +117,12 @@ body.ready::before { opacity: 1; transform: scale(1); }
     position: absolute;
     left: 50%;
     bottom: 50%;
-    transform: translateX(-50%) translateY(42%);
+    transform: translateX(-50%) translateY(40%);
     width: 0;
     height: 0;
-    border-left: 68px solid transparent;
-    border-right: 68px solid transparent;
-    border-bottom: 96px solid rgba(57,255,234,0.05);
+    border-left: 72px solid transparent;
+    border-right: 72px solid transparent;
+    border-bottom: 102px solid rgba(57,255,234,0.05);
     filter: blur(6px);
     z-index: 0;
     transition: transform 0.6s ease, opacity 0.4s;
@@ -132,12 +132,12 @@ body.ready::before { opacity: 1; transform: scale(1); }
     position: absolute;
     left: 50%;
     bottom: 50%;
-    transform: translateX(-50%) translateY(34%);
+    transform: translateX(-50%) translateY(33%);
     width: 0;
     height: 0;
-    border-left: 60px solid transparent;
-    border-right: 60px solid transparent;
-    border-bottom: 84px solid rgba(57,255,234,0.10);
+    border-left: 64px solid transparent;
+    border-right: 64px solid transparent;
+    border-bottom: 90px solid rgba(57,255,234,0.10);
     filter: blur(2px);
     z-index: 0;
 }
@@ -477,5 +477,21 @@ body.ready .conteudo-principal .links-coluna { opacity: 1; transform: translateY
     @keyframes aparecer {
         from { opacity: 0; transform: translateY(40px); }
         to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Desktop: make the triangular backlight proportionally larger behind the profile */
+    .perfil-foto::before {
+        transform: translateX(-50%) translateY(34%);
+        border-left: 96px solid transparent;
+        border-right: 96px solid transparent;
+        border-bottom: 136px solid rgba(57,255,234,0.05);
+        filter: blur(8px);
+    }
+    .perfil-foto::after {
+        transform: translateX(-50%) translateY(28%);
+        border-left: 84px solid transparent;
+        border-right: 84px solid transparent;
+        border-bottom: 120px solid rgba(57,255,234,0.10);
+        filter: blur(3px);
     }
 }
