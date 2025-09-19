@@ -59,3 +59,15 @@
         if (modal._keyHandler) document.removeEventListener('keydown', modal._keyHandler);
         if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
     }
+
+    // Pause resume animations on touch/hover for better mobile interaction
+    ;(function(){
+        const icons = document.querySelector('.icones-sociais');
+        if (!icons) return;
+        function pause(){ icons.style.animationPlayState = 'paused'; }
+        function resume(){ icons.style.animationPlayState = 'running'; }
+        icons.addEventListener('touchstart', pause, {passive:true});
+        icons.addEventListener('touchend', resume, {passive:true});
+        icons.addEventListener('mouseenter', pause);
+        icons.addEventListener('mouseleave', resume);
+    })();

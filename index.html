@@ -12,15 +12,13 @@
 </head>
 <body>
     <main class="conteudo-principal">
+        <div class="binary-strip" aria-hidden="true"></div>
         <div class="perfil-coluna">
             <img src="imagem/1.jpg" alt="Foto de Luis" class="imagem-perfil">
             <div class="info-texto">
                 <h1 class="nome">&lt; Luis Torres /&gt;</h1>
                 <div class="bloco-formacao">
-                    <p class="formacao">Análise e Desenvolvimento de Sistemas.</p>
-                    <p class="formacao">Pós em Segurança de Redes.</p>
-                    <p class="formacao">Pós em Computação em Nuvem e App Móveis.</p>
-                    <p class="formacao">SENAI-Programador Full-Stack.</p>
+                    <p class="formacao">Programador Full-Stack</p>
                 </div>
             </div>
             <div class="icones-sociais">
@@ -105,5 +103,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Small entry animation: add class after load so CSS transitions run
+        window.addEventListener('load', function(){ document.body.classList.add('ready'); });
+    </script>
 </body>
 </html>
