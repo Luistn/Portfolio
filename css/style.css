@@ -102,6 +102,50 @@ body.ready::before { opacity: 1; transform: scale(1); }
     gap: 1rem; 
 }
 
+/* triangular backlight behind profile image (maçonaria style) */
+.perfil-coluna {
+    position: relative;
+}
+
+/* triangle aligned to the circular photo wrapper for precise centering */
+.perfil-foto {
+    position: relative;
+    display: inline-block;
+}
+.perfil-foto::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%) translateY(42%);
+    width: 0;
+    height: 0;
+    border-left: 68px solid transparent;
+    border-right: 68px solid transparent;
+    border-bottom: 96px solid rgba(57,255,234,0.05);
+    filter: blur(6px);
+    z-index: 0;
+    transition: transform 0.6s ease, opacity 0.4s;
+}
+.perfil-foto::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%) translateY(34%);
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 84px solid rgba(57,255,234,0.10);
+    filter: blur(2px);
+    z-index: 0;
+}
+.perfil-foto .imagem-perfil { position: relative; z-index: 2; display: block; }
+
+/* pulse on ready */
+body.ready .perfil-foto::before { transform: translateX(-50%) translateY(32%) scale(1.02); }
+
 .links-coluna {
     max-width: 400px;
 }
