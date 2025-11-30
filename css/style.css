@@ -1,3 +1,13 @@
+.projetos-grid .card:hover .projeto-nome {
+    animation: glitch 0.35s steps(2, end);
+}
+@keyframes glitch {
+    0% { transform: translate(0,0); text-shadow: 1px 0 rgba(57,255,234,0.5), -1px 0 rgba(124,77,255,0.4); }
+    25% { transform: translate(1px,-1px); text-shadow: -2px 0 rgba(57,255,234,0.5), 2px 0 rgba(124,77,255,0.4); }
+    50% { transform: translate(-1px,1px); text-shadow: 2px 0 rgba(57,255,234,0.5), -2px 0 rgba(124,77,255,0.4); }
+    75% { transform: translate(0.5px,-0.5px); text-shadow: -1px 0 rgba(57,255,234,0.5), 1px 0 rgba(124,77,255,0.4); }
+    100% { transform: translate(0,0); text-shadow: none; }
+}
 :root {
     --cor-primaria: #39ffea;
     --cor-texto: #cdefff;
@@ -43,6 +53,15 @@ body::before {
     transition: opacity 0.9s ease, transform 1s ease;
 }
 body.ready::before { opacity: 1; transform: scale(1); }
+
+/* Canvas para chuva de código tipo "Matrix" minimalista */
+#code-rain {
+    position: fixed;
+    inset: 0;
+    z-index: 0; /* atrás do conteúdo principal, junto do body::before */
+    pointer-events: none;
+    opacity: 0.25; /* opacidade sutil para não competir com o conteúdo */
+}
 
 .conteudo-principal {
     width: 100%;
@@ -147,7 +166,7 @@ body.ready::before { opacity: 1; transform: scale(1); }
 body.ready .perfil-foto::before { transform: translateX(-50%) translateY(32%) scale(1.02); }
 
 .links-coluna {
-    max-width: 400px;
+    max-width: 860px;
 }
 
 .imagem-perfil {
@@ -190,6 +209,15 @@ body.ready .imagem-perfil { animation: pulse 6s ease-in-out infinite; }
     letter-spacing: 0.6px;
     text-shadow: 0 1px 8px var(--sombra-cor);
 }
+
+/* Typewriter cursor */
+.nome.typewriter::after {
+    content: "|";
+    margin-left: 4px;
+    color: var(--cor-primaria);
+    animation: cursorBlink 1s steps(2, start) infinite;
+}
+@keyframes cursorBlink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
 
 .bloco-formacao {
     display: flex;
@@ -257,46 +285,90 @@ body.ready .conteudo-principal .links-coluna { opacity: 1; transform: translateY
     text-align: center;
 }
 
-.links {
+/* Grid moderno de projetos */
+.projetos-grid {
     width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
 }
 
-.links a {
+.projetos-grid .card {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    background: var(--cor-fundo-link);
-    color: var(--cor-texto);
-    font-size: var(--fonte-normal);
-    font-weight: 500;
+    gap: 0.9rem;
     text-decoration: none;
+    background: linear-gradient(180deg, rgba(57,255,234,0.06), rgba(57,255,234,0.02));
+    color: var(--cor-texto);
     border-radius: var(--raio-borda-pequeno);
-    padding: 0.8em 0.5em;
+    padding: 0.9em 0.9em;
     box-shadow: 0 2px 12px rgba(0, 224, 255, 0.07);
-    transition: all 0.2s ease-in-out;
-    letter-spacing: 0.5px;
-    text-shadow: 0 1px 8px rgba(0, 224, 255, 0.13);
+    border: 1px solid rgba(57,255,234,0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    will-change: transform;
 }
 
-.links a i {
-    font-size: 1.2em;
+.projetos-grid .card-icon i {
+    font-size: 1.3em;
+    color: var(--cor-primaria);
+}
+
+.projetos-grid .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+/* Estilo específico para o nome dos projetos */
+.projetos-grid .projeto-nome {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--cor-texto-escuro);
+    font-size: 1rem;
+}
+/* Remover visualização de linguagem */
+.projeto-badges, .badge { display: none; }
+
+.projetos-grid .card:hover {
+    background: var(--cor-fundo-link);
+    box-shadow: 0 6px 28px var(--sombra-cor);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.links a:hover .projeto-nome {
+    color: white;
+}
+
+.projetos-grid .card:hover .card-icon i {
+    transform: scale(1.12) rotate(-8deg);
     transition: transform 0.2s ease-in-out;
 }
 
-.links a:hover {
-    background: var(--cor-fundo-hover);
-    color: var(--cor-texto-escuro);
-    box-shadow: 0 4px 24px var(--sombra-cor);
-    transform: translateY(-2px) scale(1.03);
-}
+/* Mobile refinements: tornar os cards mais leves e legíveis */
+@media (max-width: 600px) {
+    .projetos-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
 
-.links a:hover i {
-    transform: scale(1.12) rotate(-8deg);
+    .projetos-grid .card {
+        padding: 0.8em 0.85em;
+        border: 1px solid rgba(57,255,234,0.18);
+        background: rgba(57,255,234,0.04);
+        box-shadow: 0 1.5px 10px rgba(0, 224, 255, 0.06);
+        transform: none; /* evitar deslocamentos grandes em telas pequenas */
+    }
+
+    .projetos-grid .card-icon i {
+        font-size: 1.2em;
+    }
+
+    .projetos-grid .projeto-nome {
+        font-size: var(--fonte-normal);
+        letter-spacing: 0.01em;
+    }
+    /* badges ocultas no mobile também */
+    .badge { display:none; }
 }
 
 .modal-overlay {

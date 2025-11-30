@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <canvas id="code-rain" aria-hidden="true"></canvas>
     <main class="conteudo-principal">
         <div class="binary-strip" aria-hidden="true"></div>
         <div class="perfil-coluna">
@@ -37,33 +38,47 @@
             </div>
         </div>
         <div class="links-coluna">
-            <p class="titulo-links">Alguns sites...</p>
-            <div class="links">
-                <a href="#" class="projeto-link" data-url="https://www.carolines2fillipe.com.br"
-                    data-descricao="Site de casamento com Lista de presente, fotos, mural de recados e confirmação de presença. Area do admin com total de confirmados, podendo exporta para pdf."
-                    data-linguagem="REACT">
-                    <i class="fas fa-globe"></i> Site de Casamento
+            <p class="titulo-links">Projetos em destaque</p>
+            <div class="projetos-grid">
+                <a href="#" class="projeto-link card" data-url="https://www.carolines2fillipe.com.br"
+                    data-descricao="Site de casamento com informações do casal, cronograma e RSVP."
+                    data-linguagem="React, JavaScript">
+                    <div class="card-icon"><i class="fas fa-globe"></i></div>
+                    <div class="card-content">
+                        <h3 class="projeto-nome">Site de Casamento</h3>
+                    </div>
                 </a>
-            <div class="links">
-                <a href="#" class="projeto-link" data-url="https://www.novalaranjeiras.com"
-                    data-descricao="Landing Page da Nova Laranjeiras Soluções, servicos, fotos e contato."
+                <a href="#" class="projeto-link card" data-url="https://www.novalaranjeiras.com/"
+                    data-descricao="Landing Page da Nova Laranjeiras Soluções, serviços, fotos e contato."
                     data-linguagem="HTML, JavaScript, CSS">
-                    <i class="fas fa-globe"></i> Nova Laranjeiras Soluções
+                    <div class="card-icon"><i class="fas fa-globe"></i></div>
+                    <div class="card-content">
+                        <h3 class="projeto-nome">Nova Laranjeiras Soluções</h3>
+                    </div>
                 </a>
-                <a href="#" class="projeto-link" data-url="https://www.baraodecayru1305.org.br/"
-                    data-descricao="Site institucional desenvolvido para a Loja Maçônica Barão de Cayrú. Apresenta informações sobre a loja, eventos e área restrita para membros."
+                <a href="#" class="projeto-link card" data-url="https://www.baraodecayru1305.org.br/"
+                    data-descricao="Site institucional da Loja Maçônica Barão de Cayrú com área para membros."
                     data-linguagem="React, JavaScript">
-                    <i class="fas fa-globe"></i> Site da Maçonaria
+                    <div class="card-icon"><i class="fas fa-globe"></i></div>
+                    <div class="card-content">
+                        <h3 class="projeto-nome">Barao de Cayru 1305</h3>
+                    </div>
                 </a>
-                <a href="#" class="projeto-link" data-url="https://emprestimo-406bc.web.app"
-                    data-descricao="Sistema de Gestão de Empréstimos e Cobranças, com avisos de vencimentos e botões interativo."
+                <a href="#" class="projeto-link card" data-url="https://emprestimo-406bc.web.app"
+                    data-descricao="Gestão de Empréstimos e Cobranças com avisos e ações rápidas."
                     data-linguagem="React, JavaScript">
-                    <i class="fas fa-list-check"></i> Gestão de Empréstimos
+                    <div class="card-icon"><i class="fas fa-list-check"></i></div>
+                    <div class="card-content">
+                        <h3 class="projeto-nome">Gestão de Empréstimos</h3>
+                    </div>
                 </a>
-                <a href="#" class="projeto-link" data-url="https://chanceler-c65a9.web.app/Sobre"
-                    data-descricao="Sistema desenvolvido para controle de presença em loja Maçonica, com funcionalidades de cadastro, check-in e geração de relatórios."
+                <a href="#" class="projeto-link card" data-url="https://chanceler-c65a9.web.app/Sobre"
+                    data-descricao="Sistema de presença com cadastro, check-in e relatórios."
                     data-linguagem="React, JavaScript">
-                    <i class="fas fa-globe"></i> Sistema de Presença
+                    <div class="card-icon"><i class="fas fa-globe"></i></div>
+                    <div class="card-content">
+                        <h3 class="projeto-nome">Sistema de Presença</h3>
+                    </div>
                 </a>
             </div>
         </div>
