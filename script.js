@@ -12,7 +12,33 @@
             document.getElementById('modal-titulo').textContent = (nomeEl ? nomeEl.textContent : link.textContent).trim();
             document.getElementById('modal-descricao').textContent = link.getAttribute('data-descricao') || '';
             const ml = document.getElementById('modal-linguagem');
-            if (ml) { ml.textContent = ''; ml.style.display = 'none'; }
+            if (ml) {
+                const langStr = link.getAttribute('data-linguagem') || '';
+                const iconMap = {
+                    'react': 'fab fa-react',
+                    'javascript': 'fab fa-js',
+                    'js': 'fab fa-js',
+                    'html': 'fab fa-html5',
+                    'html5': 'fab fa-html5',
+                    'css': 'fab fa-css3-alt',
+                    'css3': 'fab fa-css3-alt',
+                    'node': 'fab fa-node-js',
+                    'nodejs': 'fab fa-node-js',
+                    'angular': 'fab fa-angular',
+                    'vue': 'fab fa-vuejs',
+                    'typescript': 'fas fa-code'
+                };
+                function renderLanguageIcons(str){
+                    if (!str) return '';
+                    return str.split(',').map(s=>s.trim()).filter(Boolean).map(token=>{
+                        const key = token.toLowerCase();
+                        const cls = iconMap[key] || 'fas fa-code';
+                        return `<span class="lang-icon" title="${token}"><i class="${cls}" aria-hidden="true"></i></span>`;
+                    }).join('');
+                }
+                ml.innerHTML = renderLanguageIcons(langStr);
+                ml.style.display = langStr.trim() ? 'flex' : 'none';
+            }
             document.getElementById('modal-link').href = link.getAttribute('data-url');
             const modal = document.getElementById('modal-projeto');
             openModal(modal, link);
